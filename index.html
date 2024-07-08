@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <!-- Add your CSS styles or include external stylesheets here -->
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Add styling for the form */
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style for displaying the predicted price */
+        #predictedPrice {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>House Price Prediction</h1>
+    </header>
+    <main>
+        <p>Welcome to House Price Prediction Model!</p>
+
+        <!-- Form for input fields -->
+        
+        <h1>House Price Prediction</h1>
+    <form method="POST" action="/predict">
+        <label for="beds">Bedrooms:</label>
+        <select id="beds" name="beds">
+            {% for bedroom in bedrooms %}
+            <option value="{{ bedroom }}">{{ bedroom }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="baths">Bathrooms:</label>
+        <select id="baths" name="baths">
+            {% for bathroom in bathrooms %}
+            <option value="{{ bathroom }}">{{ bathroom }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="size">Size (sq ft):</label>
+        <select id="size" name="size">
+            {% for size in sizes %}
+            <option value="{{ size }}">{{ size }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="zip_code">Zip Code:</label>
+        <select id="zip_code" name="zip_code">
+            {% for zip_code in zip_codes %}
+            <option value="{{ zip_code }}">{{ zip_code }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Predict Price</button>
+    </form>
+</body>
+</html>
